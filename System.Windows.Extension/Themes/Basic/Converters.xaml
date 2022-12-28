@@ -30,4 +30,6 @@
     <converter:DoubleMinConverter x:Key="DoubleMinConverter"/>
     <converter:Object2StringConverter x:Key="Object2StringConverter"/>
     <converter:DataGridSelectAllButtonVisibilityConverter x:Key="DataGridSelectAllButtonVisibilityConverter"/>
+    <converter:EnumConverter x:Key="EnumConverter"/>
+    <converter:Enum2BooleanConverter x:Key="Enum2BooleanConverter"/>
 </ResourceDictionary>
