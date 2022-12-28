@@ -9,28 +9,16 @@ using System.Windows.Data;
 
 namespace System.Windows.Extension.Converter
 {
-    public class EnumConverter : IValueConverter
+    public class EnumNameConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value is Enum e)
+            if (value is Enum e && !string.IsNullOrWhiteSpace(parameter?.ToString()))
             {
                 var type = value.GetType();
-                if (string.IsNullOrWhiteSpace(parameter?.ToString()))
-                {
-                    return Enum.GetNames(type).Select(q =>
-                    {
-                        var description = type.GetField(q).GetCustomAttributes(true).Where(q1 => q1 is DescriptionAttribute).
-                        Select(q1 => (DescriptionAttribute)q1).FirstOrDefault()?.Description;
-                        return string.IsNullOrWhiteSpace(description) ? q : description;
-                    }).ToArray();
-                }
-                else
-                {
-                    var description = type.GetField(value?.ToString())?.GetCustomAttributes(true).Where(q1 => q1 is DescriptionAttribute).
+                var description = type.GetField(value?.ToString())?.GetCustomAttributes(true).Where(q1 => q1 is DescriptionAttribute).
                            Select(q1 => (DescriptionAttribute)q1).FirstOrDefault()?.Description;
-                    return string.IsNullOrWhiteSpace(description) ? value?.ToString() : description;
-                }
+                return string.IsNullOrWhiteSpace(description) ? value?.ToString() : description;
             }
             return new string[] { };
         }
@@ -48,7 +36,6 @@ namespace System.Windows.Extension.Converter
             if (retValue == null)
                 retValue = Enum.Parse(targetType,
                     Enum.GetNames(targetType).FirstOrDefault(q => targetType.GetField(q).GetCustomAttributes(true).Any(q1 => q1 is DescriptionAttribute desc && (desc.Description?.Equals(value?.ToString()) ?? false))));
-
             return retValue;
         }
     }
