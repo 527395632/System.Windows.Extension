@@ -13,14 +13,14 @@ namespace System.Windows.Extension.Converter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value is Enum e && !string.IsNullOrWhiteSpace(parameter?.ToString()))
+            if (value is Enum e)
             {
                 var type = value.GetType();
                 var description = type.GetField(value?.ToString())?.GetCustomAttributes(true).Where(q1 => q1 is DescriptionAttribute).
                            Select(q1 => (DescriptionAttribute)q1).FirstOrDefault()?.Description;
                 return string.IsNullOrWhiteSpace(description) ? value?.ToString() : description;
             }
-            return new string[] { };
+            return string.Empty;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
