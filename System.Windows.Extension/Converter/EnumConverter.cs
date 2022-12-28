@@ -9,7 +9,7 @@ using System.Windows.Data;
 
 namespace System.Windows.Extension.Converter
 {
-    public class EnumNameConverter : IValueConverter
+    public class EnumConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
