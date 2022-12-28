@@ -91,7 +91,7 @@ namespace System.Windows.Extension.Controls
         ///     刻度字符串
         /// </summary>
         internal static readonly DependencyProperty SpeStrProperty = DependencyProperty.Register(
-            nameof(SpeStr), typeof(string), typeof(TimeBar), new PropertyMetadata(Lang.Lang_Interval1h));
+            nameof(SpeStr), typeof(string), typeof(TimeBar), new PropertyMetadata(Lang.CurrentLanguage.Lang_Interval1h));
 
         /// <summary>
         ///     刻度字符串
@@ -311,13 +311,13 @@ namespace System.Windows.Extension.Controls
 
                 if (value < 0)
                 {
-                    SpeStr = Lang.Lang_Interval2h;
+                    SpeStr = Lang.CurrentLanguage.Lang_Interval2h;
                     _speIndex = 0;
                     return;
                 }
                 if (value > 6)
                 {
-                    SpeStr = Lang.Lang_Interval30s;
+                    SpeStr = Lang.CurrentLanguage.Lang_Interval30s;
                     _speIndex = 6;
                     return;
                 }
@@ -325,26 +325,26 @@ namespace System.Windows.Extension.Controls
                 switch (value)
                 {
                     case 0:
-                        SpeStr = Lang.Lang_Interval2h;
+                        SpeStr = Lang.CurrentLanguage.Lang_Interval2h;
                         break;
                     case 1:
-                        SpeStr = Lang.Lang_Interval1h;
+                        SpeStr = Lang.CurrentLanguage.Lang_Interval1h;
                         break;
                     case 2:
-                        SpeStr = Lang.Lang_Interval30s;
+                        SpeStr = Lang.CurrentLanguage.Lang_Interval30s;
                         break;
                     case 3:
-                        SpeStr = Lang.Lang_Interval10m;
+                        SpeStr = Lang.CurrentLanguage.Lang_Interval10m;
                         break;
                     case 4:
-                        SpeStr = Lang.Lang_Interval5m;
+                        SpeStr = Lang.CurrentLanguage.Lang_Interval5m;
                         break;
                     case 5:
-                        SpeStr = Lang.Lang_Interval1m;
+                        SpeStr = Lang.CurrentLanguage.Lang_Interval1m;
                         break;
                     case 6:
                         SetSpeTimeFormat("HH:mm:ss");
-                        SpeStr = Lang.Lang_Interval30s;
+                        SpeStr = Lang.CurrentLanguage.Lang_Interval30s;
                         break;
                 }
                 _speIndex = value;

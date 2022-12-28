@@ -198,7 +198,7 @@ namespace System.Windows.Extension.Controls
                 IsDialog = true,
                 WindowStartupLocation = WindowStartupLocation.CenterScreen,
                 ShowBorder = true,
-                Title = string.IsNullOrEmpty(title) ? Lang.Lang_Tip : title,
+                Title = string.IsNullOrEmpty(title) ? Lang.CurrentLanguage.Lang_Tip : title,
                 ShowCancel = showCancel
             };
             return window.ShowDialog();

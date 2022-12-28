@@ -48,7 +48,7 @@ namespace System.Windows.Extension.Controls
         /// </summary>
         private static readonly SaveFileDialog SaveFileDialog = new()
         {
-            Filter = $"{Lang.Lang_PngImg}|*.png"
+            Filter = $"{Lang.CurrentLanguage.Lang_PngImg}|*.png"
         };
 
         private Panel _panelMain;
@@ -199,7 +199,7 @@ namespace System.Windows.Extension.Controls
             }
             catch
             {
-                MessageBox.Show(Lang.Lang_ErrorImgPath);
+                MessageBox.Show(Lang.CurrentLanguage.Lang_ErrorImgPath);
             }
         }
 
@@ -493,7 +493,7 @@ namespace System.Windows.Extension.Controls
 
             if (Math.Abs(height - 0) < 0.001 || Math.Abs(width - 0) < 0.001)
             {
-                MessageBox.Show(Lang.Lang_ErrorImgSize);
+                MessageBox.Show(Lang.CurrentLanguage.Lang_ErrorImgSize);
                 return;
             }
 

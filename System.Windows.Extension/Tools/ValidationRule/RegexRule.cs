@@ -11,7 +11,7 @@ namespace System.Windows.Extension.Tools
 
         public string Pattern { get; set; }
 
-        public string ErrorContent { get; set; } = Lang.Lang_FormatError;
+        public string ErrorContent { get; set; } = Lang.CurrentLanguage.Lang_FormatError;
 
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {

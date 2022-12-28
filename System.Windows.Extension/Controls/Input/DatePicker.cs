@@ -144,7 +144,7 @@ namespace System.Windows.Extension.Controls
                 }
                 else if (InfoElement.GetNecessary(this))
                 {
-                    result = OperationResult.Failed(Lang.Lang_IsNotEmpty);
+                    result = OperationResult.Failed(Lang.CurrentLanguage.Lang_IsNotEmpty);
                 }
                 else
                 {

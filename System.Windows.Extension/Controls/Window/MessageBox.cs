@@ -196,22 +196,22 @@ namespace System.Windows.Extension.Controls
                 builder.Append(Environment.NewLine);
                 if (_showOk)
                 {
-                    builder.Append(Lang.Lang_Confirm);
+                    builder.Append(Lang.CurrentLanguage.Lang_Confirm);
                     builder.Append("   ");
                 }
                 if (_showYes)
                 {
-                    builder.Append(Lang.Lang_Yes);
+                    builder.Append(Lang.CurrentLanguage.Lang_Yes);
                     builder.Append("   ");
                 }
                 if (_showNo)
                 {
-                    builder.Append(Lang.Lang_False);
+                    builder.Append(Lang.CurrentLanguage.Lang_False);
                     builder.Append("   ");
                 }
                 if (_showCancel)
                 {
-                    builder.Append(Lang.Lang_Cancel);
+                    builder.Append(Lang.CurrentLanguage.Lang_Cancel);
                     builder.Append("   ");
                 }
                 builder.Append(Environment.NewLine);
@@ -470,7 +470,7 @@ namespace System.Windows.Extension.Controls
                     {
                         IsCancel = true,
                         IsDefault = true,
-                        Content = Lang.Lang_Confirm,
+                        Content = Lang.CurrentLanguage.Lang_Confirm,
                         Command = ControlCommands.Confirm,
                         Style = ResourceHelper.GetResourceInternal<Style>("MessageBoxButtonStyle")
                     };
@@ -481,7 +481,7 @@ namespace System.Windows.Extension.Controls
                     messageBox._showOk = true;
                     messageBox._buttonOk = new Button
                     {
-                        Content = Lang.Lang_Confirm,
+                        Content = Lang.CurrentLanguage.Lang_Confirm,
                         Command = ControlCommands.Confirm
                     };
 
@@ -489,7 +489,7 @@ namespace System.Windows.Extension.Controls
                     messageBox._buttonCancel = new Button
                     {
                         IsCancel = true,
-                        Content = Lang.Lang_Cancel,
+                        Content = Lang.CurrentLanguage.Lang_Cancel,
                         Command = ControlCommands.Cancel
                     };
 
@@ -512,14 +512,14 @@ namespace System.Windows.Extension.Controls
                     messageBox._showYes = true;
                     messageBox._buttonYes = new Button
                     {
-                        Content = Lang.Lang_Yes,
+                        Content = Lang.CurrentLanguage.Lang_Yes,
                         Command = ControlCommands.Yes
                     };
 
                     messageBox._showNo = true;
                     messageBox._buttonNo = new Button
                     {
-                        Content = Lang.Lang_False,
+                        Content = Lang.CurrentLanguage.Lang_False,
                         Command = ControlCommands.No
                     };
 
@@ -542,14 +542,14 @@ namespace System.Windows.Extension.Controls
                     messageBox._showYes = true;
                     messageBox._buttonYes = new Button
                     {
-                        Content = Lang.Lang_Yes,
+                        Content = Lang.CurrentLanguage.Lang_Yes,
                         Command = ControlCommands.Yes
                     };
 
                     messageBox._showNo = true;
                     messageBox._buttonNo = new Button
                     {
-                        Content = Lang.Lang_False,
+                        Content = Lang.CurrentLanguage.Lang_False,
                         Command = ControlCommands.No
                     };
 
@@ -557,7 +557,7 @@ namespace System.Windows.Extension.Controls
                     messageBox._buttonCancel = new Button
                     {
                         IsCancel = true,
-                        Content = Lang.Lang_Cancel,
+                        Content = Lang.CurrentLanguage.Lang_Cancel,
                         Command = ControlCommands.Cancel
                     };
 

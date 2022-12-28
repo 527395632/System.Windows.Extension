@@ -33,9 +33,9 @@ namespace System.Windows.Extension.Controls
             var categoryAttribute = propertyDescriptor.Attributes.OfType<CategoryAttribute>().FirstOrDefault();
 
             return categoryAttribute == null ?
-                Lang.Lang_Miscellaneous :
+                Lang.CurrentLanguage.Lang_Miscellaneous :
                 string.IsNullOrEmpty(categoryAttribute.Category) ?
-                    Lang.Lang_Miscellaneous :
+                    Lang.CurrentLanguage.Lang_Miscellaneous :
                     categoryAttribute.Category;
         }
 

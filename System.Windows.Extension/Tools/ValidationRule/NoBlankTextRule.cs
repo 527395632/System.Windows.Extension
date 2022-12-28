@@ -6,13 +6,13 @@ namespace System.Windows.Extension.Tools
 {
     public class NoBlankTextRule : ValidationRule
     {
-        public string ErrorContent { get; set; } = Lang.Lang_IsNotEmpty;
+        public string ErrorContent { get; set; } = Lang.CurrentLanguage.Lang_IsNotEmpty;
 
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {
             if (value is not string text)
             {
-                return new ValidationResult(false, Lang.Lang_FormatError);
+                return new ValidationResult(false, Lang.CurrentLanguage.Lang_FormatError);
             }
 
             if (string.IsNullOrEmpty(text))

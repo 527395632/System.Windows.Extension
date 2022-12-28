@@ -63,7 +63,7 @@ namespace System.Windows.Extension.Controls
                 }
                 catch
                 {
-                    MessageBox.Show(Lang.Lang_ErrorImgPath);
+                    MessageBox.Show(Lang.CurrentLanguage.Lang_ErrorImgPath);
                 }
             };
         }

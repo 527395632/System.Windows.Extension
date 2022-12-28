@@ -8,12 +8,12 @@ namespace System.Windows.Extension.Converter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value == null) return Lang.Lang_UnknownSize;
+            if (value == null) return Lang.CurrentLanguage.Lang_UnknownSize;
             if (value is long intValue)
             {
                 if (intValue < 0)
                 {
-                    return Lang.Lang_UnknownSize;
+                    return Lang.CurrentLanguage.Lang_UnknownSize;
                 }
                 if (intValue < 1024)
                 {
@@ -39,9 +39,9 @@ namespace System.Windows.Extension.Converter
                 {
                     return $"{intValue / 1125899906842624.0:0.00} PB";
                 }
-                return Lang.Lang_TooLarge;
+                return Lang.CurrentLanguage.Lang_TooLarge;
             }
-            return Lang.Lang_Unknown;
+            return Lang.CurrentLanguage.Lang_Unknown;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

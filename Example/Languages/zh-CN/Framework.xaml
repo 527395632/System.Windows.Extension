@@ -1,0 +1,45 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:s="clr-namespace:System;assembly=mscorlib">
+
+    <s:String x:Key="All">全部</s:String>
+    <s:String x:Key="Am">上午</s:String>
+    <s:String x:Key="Cancel">取消</s:String>
+    <s:String x:Key="Clear">清除</s:String>
+    <s:String x:Key="Close">关闭</s:String>
+    <s:String x:Key="CloseAll">关闭所有</s:String>
+    <s:String x:Key="CloseOther">关闭其他</s:String>
+    <s:String x:Key="Confirm">确定</s:String>
+    <s:String x:Key="ErrorImgPath">错误的图片路径</s:String>
+    <s:String x:Key="ErrorImgSize">非法的图片尺寸</s:String>
+    <s:String x:Key="Find">查找</s:String>
+    <s:String x:Key="FormatError">格式错误</s:String>
+    <s:String x:Key="Interval10m">间隔10分钟</s:String>
+    <s:String x:Key="Interval1h">间隔1小时</s:String>
+    <s:String x:Key="Interval1m">间隔1分钟</s:String>
+    <s:String x:Key="Interval2h">间隔2小时</s:String>
+    <s:String x:Key="Interval30m">间隔30分钟</s:String>
+    <s:String x:Key="Interval30s">间隔30秒</s:String>
+    <s:String x:Key="Interval5m">间隔5分钟</s:String>
+    <s:String x:Key="IsNotEmpty">不能为空</s:String>
+    <s:String x:Key="Jump">跳转</s:String>
+    <s:String x:Key="LangComment">查找类似 {0} 的本地化字符串。</s:String>
+    <s:String x:Key="Miscellaneous">杂项</s:String>
+    <s:String x:Key="NextPage">下一页</s:String>
+    <s:String x:Key="False">否</s:String>
+    <s:String x:Key="NoData">暂无数据</s:String>
+    <s:String x:Key="OutOfRange">不在范围内</s:String>
+    <s:String x:Key="PageMode">页面模式</s:String>
+    <s:String x:Key="Pm">下午</s:String>
+    <s:String x:Key="PngImg">PNG图片</s:String>
+    <s:String x:Key="PreviousPage">上一页</s:String>
+    <s:String x:Key="ScrollMode">滚动模式</s:String>
+    <s:String x:Key="Tip">提示</s:String>
+    <s:String x:Key="TooLarge">过大</s:String>
+    <s:String x:Key="TwoPageMode">双页模式</s:String>
+    <s:String x:Key="Unknown">未知</s:String>
+    <s:String x:Key="UnknownSize">未知大小</s:String>
+    <s:String x:Key="Yes">是</s:String>
+    <s:String x:Key="ZoomIn">放大</s:String>
+    <s:String x:Key="ZoomOut">缩小</s:String>
+</ResourceDictionary>

@@ -11,9 +11,9 @@ namespace System.Windows.Extension.Data
 
         public int WaitTime { get; set; } = 6;
 
-        public string CancelStr { get; set; } = Lang.Lang_Cancel;
+        public string CancelStr { get; set; } = Lang.CurrentLanguage.Lang_Cancel;
 
-        public string ConfirmStr { get; set; } = Lang.Lang_Confirm;
+        public string ConfirmStr { get; set; } = Lang.CurrentLanguage.Lang_Confirm;
 
         public Func<bool, bool> ActionBeforeClose { get; set; }
 

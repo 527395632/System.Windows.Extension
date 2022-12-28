@@ -251,7 +251,7 @@ namespace System.Windows.Extension.Controls
                         : ActualPasswordBox.Password))
                     result = OperationResult.Success();
                 else if (InfoElement.GetNecessary(this))
-                    result = OperationResult.Failed(Lang.Lang_IsNotEmpty);
+                    result = OperationResult.Failed(Lang.CurrentLanguage.Lang_IsNotEmpty);
                 else
                     result = OperationResult.Success();
             }
