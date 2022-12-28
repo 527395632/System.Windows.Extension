@@ -2,7 +2,7 @@
 
 	<PropertyGroup>
 		<AssemblyName>System.Windows.Extension</AssemblyName>
-		<RootNamespace>System.Windows</RootNamespace>
+		<RootNamespace>System.Windows.Extension</RootNamespace>
 		<TargetFrameworks>net48;</TargetFrameworks>
 		<UseWPF>true</UseWPF>
 		<PackageId>System.Windows.Extension</PackageId>
