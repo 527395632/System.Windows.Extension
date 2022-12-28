@@ -1,0 +1,222 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<AssemblyName>System.Windows.Extension</AssemblyName>
+		<RootNamespace>System.Windows</RootNamespace>
+		<TargetFrameworks>net48;</TargetFrameworks>
+		<UseWPF>true</UseWPF>
+		<PackageId>System.Windows.Extension</PackageId>
+		<IncludeSymbols>true</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<Copyright>Copyright © 527395632@qq.com</Copyright>
+		<AssemblyVersion>1.0.0.0</AssemblyVersion>
+		<FileVersion>1.0.0.0</FileVersion>
+		<Version>1.0.0.0</Version>
+		<RepositoryUrl></RepositoryUrl>
+		<EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+		<BaseOutputPath>bin</BaseOutputPath>
+		<LangVersion>9.0</LangVersion>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Include="Themes\Basic\Behaviors.xaml" />
+	  <None Include="Themes\Basic\Brushes.xaml" />
+	  <None Include="Themes\Basic\Converters.xaml" />
+	  <None Include="Themes\Basic\Effects.xaml" />
+	  <None Include="Themes\Basic\Fonts.xaml" />
+	  <None Include="Themes\Basic\Geometries.xaml" />
+	  <None Include="Themes\Basic\Paths.xaml" />
+	  <None Include="Themes\Basic\Sizes.xaml" />
+	  <None Include="Themes\Styles\AutoCompleteTextBox.xaml" />
+	  <None Include="Themes\Styles\Badge.xaml" />
+	  <None Include="Themes\Styles\Base\AutoCompleteTextBoxBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\BadgeBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\BaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\ButtonBaseBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\ButtonBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\ButtonGroupBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\CardBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\ChatBubbleBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\CheckBoxBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\CheckComboBoxBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\ColorPickerBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\ComboBoxBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\ContextMenuBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\CoverFlowBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\CoverViewBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\DataGridBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\DatePickerBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\DateTimePickerBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\DialogBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\DividerBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\DrawerBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\ElementGroupBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\EmptyBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\ExpanderBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\FlowDocumentBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\FrameBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\GotoTopBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\GravatarBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\GroupBoxBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\ImageSelectorBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\ItemsPanelTemplate.xaml" />
+	  <None Include="Themes\Styles\Base\LabelBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\ListBoxBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\ListViewBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\LoadingBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\LoadingCircleBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\LoadingLineBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\MagnifierBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\MenuBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\NavigationWindowBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\NumericUpDownBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\PasswordBoxBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\PinBoxBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\PoptipBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\ProgressBarBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\ProgressButtonBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\PropertyGridBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\RadioButtonBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\RateBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\RepeatButtonBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\RunningBlockBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\ScrollViewerBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\SearchBarBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\SeparatorBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\ShieldBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\SideMenuBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\SliderBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\SplitButtonBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\StatusBarBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\StepBarBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\TabControlBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\TagBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\TextBlockBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\TextBoxBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\TimePickerBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\ToggleBlockBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\ToggleButtonBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\ToolBarBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\ToolTipBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\TransferBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\TreeViewBaseStyle.xaml" />
+	  <None Include="Themes\Styles\Base\WatermarkBaseStyle.xaml" />
+	  <None Include="Themes\Styles\BlendEffectBox.xaml" />
+	  <None Include="Themes\Styles\Border.xaml" />
+	  <None Include="Themes\Styles\Button.xaml" />
+	  <None Include="Themes\Styles\ButtonGroup.xaml" />
+	  <None Include="Themes\Styles\Calendar.xaml" />
+	  <None Include="Themes\Styles\CalendarWithClock.xaml" />
+	  <None Include="Themes\Styles\Card.xaml" />
+	  <None Include="Themes\Styles\Carousel.xaml" />
+	  <None Include="Themes\Styles\ChatBubble.xaml" />
+	  <None Include="Themes\Styles\CheckBox.xaml" />
+	  <None Include="Themes\Styles\CheckComboBox.xaml" />
+	  <None Include="Themes\Styles\Clock.xaml" />
+	  <None Include="Themes\Styles\Col.xaml" />
+	  <None Include="Themes\Styles\ColorPicker.xaml" />
+	  <None Include="Themes\Styles\ComboBox.xaml" />
+	  <None Include="Themes\Styles\ContentControl.xaml" />
+	  <None Include="Themes\Styles\ContextMenu.xaml" />
+	  <None Include="Themes\Styles\CoverFlow.xaml" />
+	  <None Include="Themes\Styles\CoverView.xaml" />
+	  <None Include="Themes\Styles\DataGrid.xaml" />
+	  <None Include="Themes\Styles\DatePicker.xaml" />
+	  <None Include="Themes\Styles\DateTimePicker.xaml" />
+	  <None Include="Themes\Styles\Dialog.xaml" />
+	  <None Include="Themes\Styles\Divider.xaml" />
+	  <None Include="Themes\Styles\Drawer.xaml" />
+	  <None Include="Themes\Styles\ElementGroup.xaml" />
+	  <None Include="Themes\Styles\Empty.xaml" />
+	  <None Include="Themes\Styles\Expander.xaml" />
+	  <None Include="Themes\Styles\FlipClock.xaml" />
+	  <None Include="Themes\Styles\FloatingBlock.xaml" />
+	  <None Include="Themes\Styles\FlowDocument.xaml" />
+	  <None Include="Themes\Styles\Frame.xaml" />
+	  <None Include="Themes\Styles\GotoTop.xaml" />
+	  <None Include="Themes\Styles\Gravatar.xaml" />
+	  <None Include="Themes\Styles\GridSplitter.xaml" />
+	  <None Include="Themes\Styles\GroupBox.xaml" />
+	  <None Include="Themes\Styles\Growl.xaml" />
+	  <None Include="Themes\Styles\ImageSelector.xaml" />
+	  <None Include="Themes\Styles\ImageViewer.xaml" />
+	  <None Include="Themes\Styles\Label.xaml" />
+	  <None Include="Themes\Styles\ListBox.xaml" />
+	  <None Include="Themes\Styles\ListView.xaml" />
+	  <None Include="Themes\Styles\Loading.xaml" />
+	  <None Include="Themes\Styles\Magnifier.xaml" />
+	  <None Include="Themes\Styles\Menu.xaml" />
+	  <None Include="Themes\Styles\MessageBox.xaml" />
+	  <None Include="Themes\Styles\NavigationWindow.xaml" />
+	  <None Include="Themes\Styles\Notification.xaml" />
+	  <None Include="Themes\Styles\NumericUpDown.xaml" />
+	  <None Include="Themes\Styles\Pagination.xaml" />
+	  <None Include="Themes\Styles\PasswordBox.xaml" />
+	  <None Include="Themes\Styles\PinBox.xaml" />
+	  <None Include="Themes\Styles\Poptip.xaml" />
+	  <None Include="Themes\Styles\PopupWindow.xaml" />
+	  <None Include="Themes\Styles\ProgressBar.xaml" />
+	  <None Include="Themes\Styles\ProgressButton.xaml" />
+	  <None Include="Themes\Styles\PropertyGrid.xaml" />
+	  <None Include="Themes\Styles\RadioButton.xaml" />
+	  <None Include="Themes\Styles\Rate.xaml" />
+	  <None Include="Themes\Styles\Rectangle.xaml" />
+	  <None Include="Themes\Styles\RepeatButton.xaml" />
+	  <None Include="Themes\Styles\Ribbon.xaml" />
+	  <None Include="Themes\Styles\RichTextBox.xaml" />
+	  <None Include="Themes\Styles\RunningBlock.xaml" />
+	  <None Include="Themes\Styles\Screenshot.xaml" />
+	  <None Include="Themes\Styles\ScrollViewer.xaml" />
+	  <None Include="Themes\Styles\SearchBar.xaml" />
+	  <None Include="Themes\Styles\Separator.xaml" />
+	  <None Include="Themes\Styles\Shield.xaml" />
+	  <None Include="Themes\Styles\SideMenu.xaml" />
+	  <None Include="Themes\Styles\SimpleItemsControl.xaml" />
+	  <None Include="Themes\Styles\Slider.xaml" />
+	  <None Include="Themes\Styles\SplitButton.xaml" />
+	  <None Include="Themes\Styles\Sprite.xaml" />
+	  <None Include="Themes\Styles\StatusBar.xaml" />
+	  <None Include="Themes\Styles\StepBar.xaml" />
+	  <None Include="Themes\Styles\TabControl.xaml" />
+	  <None Include="Themes\Styles\Tag.xaml" />
+	  <None Include="Themes\Styles\TextBlock.xaml" />
+	  <None Include="Themes\Styles\TextBox.xaml" />
+	  <None Include="Themes\Styles\TimeBar.xaml" />
+	  <None Include="Themes\Styles\TimePicker.xaml" />
+	  <None Include="Themes\Styles\ToggleBlock.xaml" />
+	  <None Include="Themes\Styles\ToggleButton.xaml" />
+	  <None Include="Themes\Styles\ToolBar.xaml" />
+	  <None Include="Themes\Styles\ToolTip.xaml" />
+	  <None Include="Themes\Styles\Transfer.xaml" />
+	  <None Include="Themes\Styles\TransitioningContentControl.xaml" />
+	  <None Include="Themes\Styles\TreeView.xaml" />
+	  <None Include="Themes\Styles\Watermark.xaml" />
+	  <None Include="Themes\Styles\Window.xaml" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Page Update="Themes\Basic\Colors\Colors.xaml">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </Page>
+	  <Page Update="Themes\Basic\Colors\ColorsDark.xaml">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </Page>
+	  <Page Update="Themes\Basic\Colors\ColorsViolet.xaml">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </Page>
+	  <Page Update="Themes\SkinDark.xaml">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </Page>
+	  <Page Update="Themes\SkinDefault.xaml">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </Page>
+	  <Page Update="Themes\SkinViolet.xaml">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </Page>
+	</ItemGroup>
+
+	<Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+	  <Exec Command="$(SolutionDir)System.Windows.Extension\Themes\XamlCombine.exe $(SolutionDir)System.Windows.Extension\Themes\XamlCombine.ini Theme.xaml" />
+	</Target>
+
+</Project>

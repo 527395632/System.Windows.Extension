@@ -1,0 +1,15 @@
+﻿using System.Windows.Markup;
+
+[assembly: XmlnsDefinition("https://handyorg.github.io/System.Window", "System.Window.Controls")]
+[assembly: XmlnsDefinition("https://handyorg.github.io/System.Window", "System.Window.Tools")]
+[assembly: XmlnsDefinition("https://handyorg.github.io/System.Window", "System.Window.Tools.Converter")]
+[assembly: XmlnsDefinition("https://handyorg.github.io/System.Window", "System.Window.Tools.Extension")]
+[assembly: XmlnsDefinition("https://handyorg.github.io/System.Window", "System.Window.Interactivity")]
+[assembly: XmlnsDefinition("https://handyorg.github.io/System.Window", "System.Window.Expression.Shapes")]
+[assembly: XmlnsDefinition("https://handyorg.github.io/System.Window", "System.Window.Expression.Media")]
+[assembly: XmlnsDefinition("https://handyorg.github.io/System.Window", "System.Window.Media.Animation")]
+[assembly: XmlnsDefinition("https://handyorg.github.io/System.Window", "System.Window.Media.Effects")]
+[assembly: XmlnsDefinition("https://handyorg.github.io/System.Window", "System.Window.Data")]
+[assembly: XmlnsDefinition("https://handyorg.github.io/System.Window", "System.Window.Properties.Langs")]
+[assembly: XmlnsDefinition("https://handyorg.github.io/System.Window", "System.Window.Themes")]
+[assembly: XmlnsPrefix("https://handyorg.github.io/System.Window", "hc")]
