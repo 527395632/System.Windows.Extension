@@ -1,55 +1,103 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace System.Windows.Extension.Interactivity
 {
-    public class Command : ICommand
+    public class Command : CommandBase
     {
-        private Action _action;
-        public Command(Action action)
+        Action _executeMethod;
+        Func<bool> _canExecuteMethod;
+
+        public Command(Action executeMethod)
+            : this(executeMethod, () => true)
         {
-            _action = action;
+
         }
 
-        private EventHandler _canExecuteChanged;
-        event EventHandler ICommand.CanExecuteChanged
+        public Command(Action executeMethod, Func<bool> canExecuteMethod)
+            : base()
         {
-            add => _canExecuteChanged += value;
-            remove => _canExecuteChanged -= value;
+            if (executeMethod == null || canExecuteMethod == null)
+                throw new ArgumentNullException(nameof(executeMethod), "DelegatesCannotBeNull");
+
+            _executeMethod = executeMethod;
+            _canExecuteMethod = canExecuteMethod;
         }
 
-        public virtual bool CanExecute(object parameter) => true;
-
-        void ICommand.Execute(object parameter)
+        public void Execute()
         {
-            _action?.Invoke();
+            _executeMethod();
+        }
+
+        public bool CanExecute()
+        {
+            return _canExecuteMethod();
+        }
+
+        protected override void Execute(object parameter)
+        {
+            Execute();
+        }
+
+        protected override bool CanExecute(object parameter)
+        {
+            return CanExecute();
         }
     }
 
-    public class Command<T> : ICommand
+    public class Command<T> : CommandBase
     {
-        private Action<T> _action;
-        public Command(Action<T> action)
+        readonly Action<T> _executeMethod;
+        Func<T, bool> _canExecuteMethod;
+
+        public Command(Action<T> executeMethod)
+            : this(executeMethod, (o) => true)
         {
-            _action = action;
         }
 
-        private EventHandler _canExecuteChanged;
-        event EventHandler ICommand.CanExecuteChanged
+        public Command(Action<T> executeMethod, Func<T, bool> canExecuteMethod)
+            : base()
         {
-            add => _canExecuteChanged += value;
-            remove => _canExecuteChanged -= value;
+            if (executeMethod == null || canExecuteMethod == null)
+                throw new ArgumentNullException(nameof(executeMethod), "DelegatesCannotBeNull");
+
+            TypeInfo genericTypeInfo = typeof(T).GetTypeInfo();
+
+            if (genericTypeInfo.IsValueType)
+            {
+                if ((!genericTypeInfo.IsGenericType) || (!typeof(Nullable<>).GetTypeInfo().IsAssignableFrom(genericTypeInfo.GetGenericTypeDefinition().GetTypeInfo())))
+                {
+                    throw new InvalidCastException("CommandInvalidGenericPayloadType");
+                }
+            }
+
+            _executeMethod = executeMethod;
+            _canExecuteMethod = canExecuteMethod;
         }
 
-        public virtual bool CanExecute(object parameter) => true;
-
-        void ICommand.Execute(object parameter)
+        public void Execute(T parameter)
         {
-            _action?.Invoke((T)parameter);
+            _executeMethod(parameter);
+        }
+
+        public bool CanExecute(T parameter)
+        {
+            return _canExecuteMethod(parameter);
+        }
+
+        protected override void Execute(object parameter)
+        {
+            Execute((T)parameter);
+        }
+
+        protected override bool CanExecute(object parameter)
+        {
+            return CanExecute((T)parameter);
         }
     }
 }

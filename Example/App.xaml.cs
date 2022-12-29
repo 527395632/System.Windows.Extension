@@ -16,6 +16,8 @@ namespace Example
     {
         protected override void OnStartup(StartupEventArgs e)
         {
+            var t = new UserInfo().GetType();
+
             base.OnStartup(e);
             Lang.CurrentLanguage = "zh-CN";
         }

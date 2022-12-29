@@ -36,6 +36,7 @@
 	<converter:EnumConverter x:Key="EnumConverter" />
 	<converter:EnumNamesConverter x:Key="EnumNamesConverter" />
 	<converter:Enum2BooleanConverter x:Key="Enum2BooleanConverter" />
+	<converter:MultiValue2ModelConverter x:Key="MultiValue2ModelConverter" />
 	<Color x:Key="EffectShadowColor">#88000000</Color>
 	<system:Double x:Key="LargeFontSize">24</system:Double>
 	<system:Double x:Key="HeadFontSize">20</system:Double>
