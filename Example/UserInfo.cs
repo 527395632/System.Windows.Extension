@@ -14,5 +14,8 @@ namespace Example
 
         [Index(2)]
         public string Name { get; set; }
+
+        [Index(3)]
+        public bool Sex { get; set; }
     }
 }
