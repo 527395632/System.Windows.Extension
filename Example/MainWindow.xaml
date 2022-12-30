@@ -18,5 +18,17 @@
                 </MultiBinding>
             </Button.CommandParameter>
         </Button>
+
+        <TreeView>
+            <TreeViewItem x:Name="abc" Header="11111" TreeViewItemElement.Status="Unchecked" TreeViewItemElement.StatusChanged="{Binding StateChangeCommand}">
+                <TreeViewItem Header="22222" TreeViewItemElement.Status="Unchecked"/>
+                <TreeViewItem Header="33333" TreeViewItemElement.Status="Unchecked">
+                    <TreeViewItem Header="555" TreeViewItemElement.Status="Unchecked"/>
+                    <TreeViewItem Header="666" TreeViewItemElement.Status="Unchecked"/>
+                    <TreeViewItem Header="777" TreeViewItemElement.Status="Unchecked"/>
+                </TreeViewItem>
+                <TreeViewItem Header="44444" TreeViewItemElement.Status="Unchecked"/>
+            </TreeViewItem>
+        </TreeView>
     </StackPanel>
 </Window>

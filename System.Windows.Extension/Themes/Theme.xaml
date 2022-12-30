@@ -37,6 +37,7 @@
 	<converter:EnumNamesConverter x:Key="EnumNamesConverter" />
 	<converter:Enum2BooleanConverter x:Key="Enum2BooleanConverter" />
 	<converter:MultiValue2ModelConverter x:Key="MultiValue2ModelConverter" />
+	<converter:CheckBoxState2BoolenConverter x:Key="CheckBoxState2BoolenConverter" />
 	<Color x:Key="EffectShadowColor">#88000000</Color>
 	<system:Double x:Key="LargeFontSize">24</system:Double>
 	<system:Double x:Key="HeadFontSize">20</system:Double>
@@ -12031,11 +12032,15 @@
 							<DockPanel LastChildFill="True" Margin="{Binding Converter={StaticResource TreeViewItemMarginConverter}, RelativeSource={RelativeSource TemplatedParent}}">
 								<ToggleButton x:Name="Expander" ClickMode="Press" IsChecked="{Binding IsExpanded, RelativeSource={RelativeSource TemplatedParent}}" Style="{StaticResource ExpandCollapseToggleStyle}" />
 								<ContentPresenter VerticalAlignment="Center" x:Name="PART_Header" ContentSource="Header" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+								<CheckBox x:Name="State" HorizontalAlignment="Right" IsChecked="{Binding Path=(hc:TreeViewItemElement.Status), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource CheckBoxState2BoolenConverter}}" />
 							</DockPanel>
 						</Border>
 						<ItemsPresenter x:Name="ItemsHost" Grid.Row="1" />
 					</Grid>
 					<ControlTemplate.Triggers>
+						<Trigger Property="hc:TreeViewItemElement.Status" Value="{x:Null}">
+							<Setter TargetName="State" Property="Visibility" Value="Collapsed" />
+						</Trigger>
 						<Trigger Property="IsMouseOver" Value="true" SourceName="Bd">
 							<Setter Property="Background" TargetName="Bd" Value="{DynamicResource SecondaryRegionBrush}" />
 						</Trigger>

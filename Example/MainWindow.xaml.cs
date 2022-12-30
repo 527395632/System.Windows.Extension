@@ -12,6 +12,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Extension.Controls;
+using System.Windows.Extension.Data;
 using System.Windows.Extension.Interactivity;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -30,6 +31,7 @@ namespace Example
         {
             InitializeComponent();
             ClickCommand = new Command<UserInfo>(OnClick, OnClickValidate);
+            StateChangeCommand = new Command<object>(OnStateChange);
             DataContext = this;
         }
 
@@ -40,6 +42,12 @@ namespace Example
         private bool OnClickValidate(UserInfo info)
         {
             return true;
+        }
+
+
+        public Command<object> StateChangeCommand { get; }
+        private void OnStateChange(object state)
+        {
         }
     }
 }
