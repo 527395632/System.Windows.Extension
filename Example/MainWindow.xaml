@@ -6,29 +6,34 @@
         xmlns:local="clr-namespace:Example"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <StackPanel>
-        <CheckBox x:Name="c"/>
+    <UniformGrid Columns="3">
+        <GroupBox Header="Sample1" Margin="10">
+            <StackPanel>
+                <CheckBox x:Name="c"/>
+                <Button Width="120" Height="60" Content="Button" Style="{StaticResource ButtonSuccess}" Command="{Binding ClickCommand}">
+                    <Button.CommandParameter>
+                        <MultiBinding Converter="{StaticResource MultiValue2ModelConverter}" ConverterParameter="Example.UserInfo,Example">
+                            <Binding Source="1"/>
+                            <Binding Source="李四"/>
+                            <Binding ElementName="c" Path="IsChecked"/>
+                        </MultiBinding>
+                    </Button.CommandParameter>
+                </Button>
+            </StackPanel>
+        </GroupBox>
 
-        <Button Width="120" Height="60" Content="Button" Style="{StaticResource ButtonSuccess}" Command="{Binding ClickCommand}">
-            <Button.CommandParameter>
-                <MultiBinding Converter="{StaticResource MultiValue2ModelConverter}" ConverterParameter="Example.UserInfo,Example">
-                    <Binding Source="1"/>
-                    <Binding Source="李四"/>
-                    <Binding ElementName="c" Path="IsChecked"/>
-                </MultiBinding>
-            </Button.CommandParameter>
-        </Button>
-
-        <TreeView>
-            <TreeViewItem x:Name="abc" Header="11111" TreeViewItemElement.Status="Unchecked" TreeViewItemElement.StatusChanged="{Binding StateChangeCommand}">
-                <TreeViewItem Header="22222" TreeViewItemElement.Status="Unchecked"/>
-                <TreeViewItem Header="33333" TreeViewItemElement.Status="Unchecked">
-                    <TreeViewItem Header="555" TreeViewItemElement.Status="Unchecked"/>
-                    <TreeViewItem Header="666" TreeViewItemElement.Status="Unchecked"/>
-                    <TreeViewItem Header="777" TreeViewItemElement.Status="Unchecked"/>
+        <GroupBox Header="Sample2" Margin="10">
+            <TreeView>
+                <TreeViewItem x:Name="abc" Header="11111" TreeViewItemElement.Status="Unchecked" TreeViewItemElement.CheckChanged="{Binding StateChangeCommand}">
+                    <TreeViewItem Header="22222" TreeViewItemElement.Status="Unchecked" TreeViewItemElement.CheckChanged="{Binding StateChangeCommand}"/>
+                    <TreeViewItem Header="33333" TreeViewItemElement.Status="Unchecked" TreeViewItemElement.CheckChanged="{Binding StateChangeCommand}">
+                        <TreeViewItem Header="555" TreeViewItemElement.Status="Unchecked" TreeViewItemElement.CheckChanged="{Binding StateChangeCommand}"/>
+                        <TreeViewItem Header="666" TreeViewItemElement.Status="Unchecked" TreeViewItemElement.CheckChanged="{Binding StateChangeCommand}"/>
+                        <TreeViewItem Header="777" TreeViewItemElement.Status="Unchecked" TreeViewItemElement.CheckChanged="{Binding StateChangeCommand}"/>
+                    </TreeViewItem>
+                    <TreeViewItem Header="44444" TreeViewItemElement.Status="Unchecked" TreeViewItemElement.CheckChanged="{Binding StateChangeCommand}"/>
                 </TreeViewItem>
-                <TreeViewItem Header="44444" TreeViewItemElement.Status="Unchecked"/>
-            </TreeViewItem>
-        </TreeView>
-    </StackPanel>
+            </TreeView>
+        </GroupBox>
+    </UniformGrid>
 </Window>
