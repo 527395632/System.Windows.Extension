@@ -30,23 +30,31 @@ namespace Example
         public MainWindow()
         {
             InitializeComponent();
-            ClickCommand = new Command<UserInfo>(OnClick, OnClickValidate);
-            StateChangeCommand = new Command<TreeViewItem>(OnStateChange);
+            ClickCommand = new Command();
+            ClickCommand.OnCommandExecute += OnClick;
+            ClickCommand.OnCommandCanExecute += OnClickValidate;
+
+            StateChangeCommand = new Command();
+            StateChangeCommand.OnCommandExecute += OnStateChange;
+
             DataContext = this;
         }
 
-        public Command<UserInfo> ClickCommand { get; }
-        private void OnClick(UserInfo info)
+        public Command ClickCommand { get; }
+
+
+        private void OnClick(object info)
         {
         }
-        private bool OnClickValidate(UserInfo info)
+
+        private bool OnClickValidate(object info)
         {
             return true;
         }
 
 
-        public Command<TreeViewItem> StateChangeCommand { get; }
-        private void OnStateChange(TreeViewItem item)
+        public Command StateChangeCommand { get; }
+        private void OnStateChange(object item)
         {
         }
     }

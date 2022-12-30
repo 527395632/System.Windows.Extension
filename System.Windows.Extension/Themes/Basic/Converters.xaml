@@ -33,6 +33,5 @@
     <converter:EnumConverter x:Key="EnumConverter"/>
     <converter:EnumNamesConverter x:Key="EnumNamesConverter"/>
     <converter:Enum2BooleanConverter x:Key="Enum2BooleanConverter"/>
-    <converter:MultiValue2ModelConverter x:Key="MultiValue2ModelConverter"/>
     <converter:CheckBoxState2BoolenConverter x:Key="CheckBoxState2BoolenConverter"/>
 </ResourceDictionary>

@@ -9,14 +9,14 @@
     <UniformGrid Columns="3">
         <GroupBox Header="Sample1" Margin="10">
             <StackPanel>
-                <CheckBox x:Name="c"/>
+                <TextBlock x:Name="txt" Text="1263"/>
                 <Button Width="120" Height="60" Content="Button" Style="{StaticResource ButtonSuccess}" Command="{Binding ClickCommand}">
                     <Button.CommandParameter>
-                        <MultiBinding Converter="{StaticResource MultiValue2ModelConverter}" ConverterParameter="Example.UserInfo,Example">
+                        <ArgumentsBinding>
                             <Binding Source="1"/>
+                            <Binding ElementName="txt"/>
                             <Binding Source="李四"/>
-                            <Binding ElementName="c" Path="IsChecked"/>
-                        </MultiBinding>
+                        </ArgumentsBinding>
                     </Button.CommandParameter>
                 </Button>
             </StackPanel>

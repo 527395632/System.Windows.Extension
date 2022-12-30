@@ -1,103 +1,44 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace System.Windows.Extension.Interactivity
 {
-    public class Command : CommandBase
+    public delegate void CommandExecuteHandler(object parameter);
+    public delegate bool CommandCanExecuteHandler(object parameter);
+
+    public class Command : ICommand
     {
-        Action _executeMethod;
-        Func<bool> _canExecuteMethod;
+        private SynchronizationContext _synchronizationContext;
 
-        public Command(Action executeMethod)
-            : this(executeMethod, () => true)
+        public Command()
         {
-
+            _synchronizationContext = SynchronizationContext.Current;
         }
 
-        public Command(Action executeMethod, Func<bool> canExecuteMethod)
-            : base()
+        public event CommandExecuteHandler OnCommandExecute;
+        public event CommandCanExecuteHandler OnCommandCanExecute;
+
+        public void RaiseCanExecuteChanged() => OnCanExecuteChanged();
+        
+        void ICommand.Execute(object parameter) => OnCommandExecute?.Invoke(parameter);
+        bool ICommand.CanExecute(object parameter) => OnCommandCanExecute?.Invoke(parameter) ?? true;
+
+        public virtual event EventHandler CanExecuteChanged;
+        protected virtual void OnCanExecuteChanged()
         {
-            if (executeMethod == null || canExecuteMethod == null)
-                throw new ArgumentNullException(nameof(executeMethod), "DelegatesCannotBeNull");
-
-            _executeMethod = executeMethod;
-            _canExecuteMethod = canExecuteMethod;
-        }
-
-        public void Execute()
-        {
-            _executeMethod();
-        }
-
-        public bool CanExecute()
-        {
-            return _canExecuteMethod();
-        }
-
-        protected override void Execute(object parameter)
-        {
-            Execute();
-        }
-
-        protected override bool CanExecute(object parameter)
-        {
-            return CanExecute();
-        }
-    }
-
-    public class Command<T> : CommandBase
-    {
-        readonly Action<T> _executeMethod;
-        Func<T, bool> _canExecuteMethod;
-
-        public Command(Action<T> executeMethod)
-            : this(executeMethod, (o) => true)
-        {
-        }
-
-        public Command(Action<T> executeMethod, Func<T, bool> canExecuteMethod)
-            : base()
-        {
-            if (executeMethod == null || canExecuteMethod == null)
-                throw new ArgumentNullException(nameof(executeMethod), "DelegatesCannotBeNull");
-
-            TypeInfo genericTypeInfo = typeof(T).GetTypeInfo();
-
-            if (genericTypeInfo.IsValueType)
+            var handler = CanExecuteChanged;
+            if (handler != null)
             {
-                if ((!genericTypeInfo.IsGenericType) || (!typeof(Nullable<>).GetTypeInfo().IsAssignableFrom(genericTypeInfo.GetGenericTypeDefinition().GetTypeInfo())))
-                {
-                    throw new InvalidCastException("CommandInvalidGenericPayloadType");
-                }
+                if (_synchronizationContext != null && _synchronizationContext != SynchronizationContext.Current)
+                    _synchronizationContext.Post((o) => handler.Invoke(this, EventArgs.Empty), null);
+                else
+                    handler.Invoke(this, EventArgs.Empty);
             }
-
-            _executeMethod = executeMethod;
-            _canExecuteMethod = canExecuteMethod;
-        }
-
-        public void Execute(T parameter)
-        {
-            _executeMethod(parameter);
-        }
-
-        public bool CanExecute(T parameter)
-        {
-            return _canExecuteMethod(parameter);
-        }
-
-        protected override void Execute(object parameter)
-        {
-            Execute((T)parameter);
-        }
-
-        protected override bool CanExecute(object parameter)
-        {
-            return CanExecute((T)parameter);
         }
     }
 }
