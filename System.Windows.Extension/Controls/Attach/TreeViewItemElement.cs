@@ -11,19 +11,19 @@ namespace System.Windows.Extension.Controls
 {
     public static class TreeViewItemElement
     {
-        #region Command
-        public static ICommand GetStatusChanged(DependencyObject obj)
+        #region CheckChanged
+        public static ICommand GetCheckChanged(DependencyObject obj)
         {
-            return (ICommand)obj.GetValue(StatusChangedProperty);
+            return (ICommand)obj.GetValue(CheckChangedProperty);
         }
 
-        public static void SetStatusChanged(DependencyObject obj, ICommand value)
+        public static void SetCheckChanged(DependencyObject obj, ICommand value)
         {
-            obj.SetValue(StatusChangedProperty, value);
+            obj.SetValue(CheckChangedProperty, value);
         }
 
-        public static readonly DependencyProperty StatusChangedProperty =
-            DependencyProperty.RegisterAttached("StatusChanged", typeof(ICommand), typeof(TreeViewItemElement), new PropertyMetadata(null));
+        public static readonly DependencyProperty CheckChangedProperty =
+            DependencyProperty.RegisterAttached("CheckChanged", typeof(ICommand), typeof(TreeViewItemElement), new PropertyMetadata(null));
         #endregion
 
         #region Status
@@ -79,7 +79,7 @@ namespace System.Windows.Extension.Controls
                         }
                     }
 
-                    var command = item.GetValue(StatusChangedProperty);
+                    var command = item.GetValue(CheckChangedProperty);
                     if (command != null && command is ICommand cmd)
                     {
                         cmd.Execute(item);
