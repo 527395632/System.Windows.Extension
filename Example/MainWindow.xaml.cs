@@ -31,7 +31,7 @@ namespace Example
         {
             InitializeComponent();
             ClickCommand = new Command<UserInfo>(OnClick, OnClickValidate);
-            StateChangeCommand = new Command<object>(OnStateChange);
+            StateChangeCommand = new Command<TreeViewItem>(OnStateChange);
             DataContext = this;
         }
 
@@ -45,8 +45,8 @@ namespace Example
         }
 
 
-        public Command<object> StateChangeCommand { get; }
-        private void OnStateChange(object state)
+        public Command<TreeViewItem> StateChangeCommand { get; }
+        private void OnStateChange(TreeViewItem item)
         {
         }
     }

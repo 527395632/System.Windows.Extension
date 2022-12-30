@@ -82,7 +82,7 @@ namespace System.Windows.Extension.Controls
                     var command = item.GetValue(StatusChangedProperty);
                     if (command != null && command is ICommand cmd)
                     {
-                        cmd.Execute(state);
+                        cmd.Execute(item);
                     }
                 }
             }));
