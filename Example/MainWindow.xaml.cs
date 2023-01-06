@@ -11,9 +11,11 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Extension;
 using System.Windows.Extension.Controls;
 using System.Windows.Extension.Data;
 using System.Windows.Extension.Interactivity;
+using System.Windows.Extension.Mvvm;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -30,31 +32,28 @@ namespace Example
         public MainWindow()
         {
             InitializeComponent();
-            ClickCommand = new Command();
-            ClickCommand.OnCommandExecute += OnClick;
-            ClickCommand.OnCommandCanExecute += OnClickValidate;
-
-            StateChangeCommand = new Command();
-            StateChangeCommand.OnCommandExecute += OnStateChange;
-
-            DataContext = this;
+            DataContext = new MainWindowViewModel();
         }
+    }
 
-        public Command ClickCommand { get; }
-
+    public class MainWindowViewModel : ViewModelBase
+    {
+        [CommandBinding(nameof(OnClick), nameof(OnCanClick))]
+        public Command ClickCommand { get; private set; }
 
         private void OnClick(object info)
         {
         }
 
-        private bool OnClickValidate(object info)
+        private bool OnCanClick(string args1, TextBlock control, string args2)
         {
             return true;
         }
 
 
-        public Command StateChangeCommand { get; }
-        private void OnStateChange(object item)
+        [CommandBinding(nameof(OnStateChange))]
+        public Command StateChangeCommand { get; private set; }
+        private void OnStateChange(TreeViewItem item)
         {
         }
     }
