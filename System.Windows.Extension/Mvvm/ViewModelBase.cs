@@ -21,10 +21,10 @@ namespace System.Windows.Extension.Mvvm
 
             foreach (var item in t.GetProperties())
             {
-                CommandBindingAttribute attribute = null;
+                CmdBindingAttribute attribute = null;
                 if (item.PropertyType.Equals(typeof(Command)) &&
                     !item.PropertyType.IsAbstract &&
-                    (attribute = item.GetCustomAttribute<CommandBindingAttribute>(true)) != null &&
+                    (attribute = item.GetCustomAttribute<CmdBindingAttribute>(true)) != null &&
                     !string.IsNullOrWhiteSpace(attribute.Execute))
                 {
                     var execute = methods.FirstOrDefault(q => q.Name.Equals(attribute.Execute))?.CreateDelegate(this);

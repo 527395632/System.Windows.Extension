@@ -28,7 +28,7 @@
                     <TreeViewItemElement.CommandParameter>
                         <ArgumentsBinding>
                             <Binding Source="1"/>
-                            <Binding ElementName="txt"/>
+                            <Binding ElementName="abc"/>
                             <Binding Source="李四"/>
                         </ArgumentsBinding>
                     </TreeViewItemElement.CommandParameter>

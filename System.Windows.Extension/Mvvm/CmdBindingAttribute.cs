@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 namespace System.Windows.Extension.Mvvm
 {
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false, Inherited = true)]
-    public class CommandBindingAttribute : Attribute
+    public class CmdBindingAttribute : Attribute
     {
-        public CommandBindingAttribute(string execute)
+        public CmdBindingAttribute(string execute)
             : this(execute, null)
         {
         }
 
-        public CommandBindingAttribute(string execute, string canExecute)
+        public CmdBindingAttribute(string execute, string canExecute)
         {
             Execute = execute;
             CanExecute = canExecute;

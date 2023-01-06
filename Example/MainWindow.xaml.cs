@@ -38,7 +38,7 @@ namespace Example
 
     public class MainWindowViewModel : ViewModelBase
     {
-        [CommandBinding(nameof(OnClick), nameof(OnCanClick))]
+        [CmdBinding(nameof(OnClick), nameof(OnCanClick))]
         public Command ClickCommand { get; private set; }
 
         private void OnClick(string args1, TextBlock control, string args2)
@@ -51,9 +51,9 @@ namespace Example
         }
 
 
-        [CommandBinding(nameof(OnStateChange))]
+        [CmdBinding(nameof(OnStateChange))]
         public Command StateChangeCommand { get; private set; }
-        private void OnStateChange(string args1, TextBlock control, string args2)
+        private void OnStateChange(string args1, TreeViewItem control, string args2)
         {
         }
     }
