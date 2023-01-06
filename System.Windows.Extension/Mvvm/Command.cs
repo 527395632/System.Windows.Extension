@@ -16,6 +16,19 @@ namespace System.Windows.Extension.Mvvm
 
         public Command(Delegate execute, Delegate canExecute)
         {
+            var executeArgs = execute.Method.GetParameters();
+            var canExecuteArgs = canExecute?.Method.GetParameters();
+            if (canExecuteArgs != null)
+            {
+                if (executeArgs.Length != canExecuteArgs.Length ||
+                    !canExecute.Method.ReturnType.Equals(typeof(bool)))
+                    throw new ArgumentException("Command错误! (Command的Execute和CanExecute的参数必须一致, 且CanExecute的返回值必须为bool类型)");
+                for (int i = 0; i < executeArgs.Length; i++)
+                {
+                    if (!executeArgs[i].ParameterType.Equals(canExecuteArgs[i].ParameterType))
+                        throw new ArgumentException("Command错误! (Command的Execute和CanExecute的参数必须一致, 且CanExecute的返回值必须为bool类型)");
+                }
+            }
             _execute = execute;
             _canExecute = canExecute;
         }

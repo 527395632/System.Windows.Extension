@@ -25,13 +25,22 @@
         <GroupBox Header="Sample2" Margin="10">
             <TreeView>
                 <TreeViewItem x:Name="abc" Header="11111" TreeViewItemElement.Status="Unchecked" TreeViewItemElement.CheckChanged="{Binding StateChangeCommand}">
-                    <TreeViewItem Header="22222" TreeViewItemElement.Status="Unchecked" TreeViewItemElement.CheckChanged="{Binding StateChangeCommand}"/>
-                    <TreeViewItem Header="33333" TreeViewItemElement.Status="Unchecked" TreeViewItemElement.CheckChanged="{Binding StateChangeCommand}">
-                        <TreeViewItem Header="555" TreeViewItemElement.Status="Unchecked" TreeViewItemElement.CheckChanged="{Binding StateChangeCommand}"/>
-                        <TreeViewItem Header="666" TreeViewItemElement.Status="Unchecked" TreeViewItemElement.CheckChanged="{Binding StateChangeCommand}"/>
-                        <TreeViewItem Header="777" TreeViewItemElement.Status="Unchecked" TreeViewItemElement.CheckChanged="{Binding StateChangeCommand}"/>
+                    <TreeViewItemElement.CommandParameter>
+                        <ArgumentsBinding>
+                            <Binding Source="1"/>
+                            <Binding ElementName="txt"/>
+                            <Binding Source="李四"/>
+                        </ArgumentsBinding>
+                    </TreeViewItemElement.CommandParameter>
+                    
+                    
+                    <TreeViewItem Header="22222" TreeViewItemElement.Status="Unchecked"/>
+                    <TreeViewItem Header="33333" TreeViewItemElement.Status="Unchecked">
+                        <TreeViewItem Header="555" TreeViewItemElement.Status="Unchecked"/>
+                        <TreeViewItem Header="666" TreeViewItemElement.Status="Unchecked"/>
+                        <TreeViewItem Header="777" TreeViewItemElement.Status="Unchecked"/>
                     </TreeViewItem>
-                    <TreeViewItem Header="44444" TreeViewItemElement.Status="Unchecked" TreeViewItemElement.CheckChanged="{Binding StateChangeCommand}"/>
+                    <TreeViewItem Header="44444" TreeViewItemElement.Status="Unchecked"/>
                 </TreeViewItem>
             </TreeView>
         </GroupBox>

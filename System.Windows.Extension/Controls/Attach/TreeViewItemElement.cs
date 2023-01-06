@@ -26,6 +26,23 @@ namespace System.Windows.Extension.Controls
             DependencyProperty.RegisterAttached("CheckChanged", typeof(ICommand), typeof(TreeViewItemElement), new PropertyMetadata(null));
         #endregion
 
+
+
+
+        public static object GetCommandParameter(DependencyObject obj)
+        {
+            return (object)obj.GetValue(CommandParameterProperty);
+        }
+
+        public static void SetCommandParameter(DependencyObject obj, object value)
+        {
+            obj.SetValue(CommandParameterProperty, value);
+        }
+        public static readonly DependencyProperty CommandParameterProperty =
+            DependencyProperty.RegisterAttached("CommandParameter", typeof(object), typeof(TreeViewItemElement), new PropertyMetadata(null));
+
+
+
         #region Status
         public static Nullable<CheckBoxState> GetStatus(DependencyObject obj)
         {
@@ -82,7 +99,7 @@ namespace System.Windows.Extension.Controls
                     var command = item.GetValue(CheckChangedProperty);
                     if (command != null && command is ICommand cmd)
                     {
-                        cmd.Execute(item);
+                        cmd.Execute(item.GetValue(CommandParameterProperty));
                     }
                 }
             }));

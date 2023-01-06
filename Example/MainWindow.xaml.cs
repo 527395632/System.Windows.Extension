@@ -41,7 +41,7 @@ namespace Example
         [CommandBinding(nameof(OnClick), nameof(OnCanClick))]
         public Command ClickCommand { get; private set; }
 
-        private void OnClick(object info)
+        private void OnClick(string args1, TextBlock control, string args2)
         {
         }
 
@@ -53,7 +53,7 @@ namespace Example
 
         [CommandBinding(nameof(OnStateChange))]
         public Command StateChangeCommand { get; private set; }
-        private void OnStateChange(TreeViewItem item)
+        private void OnStateChange(string args1, TextBlock control, string args2)
         {
         }
     }
