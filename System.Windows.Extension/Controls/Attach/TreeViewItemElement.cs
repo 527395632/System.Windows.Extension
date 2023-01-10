@@ -99,7 +99,7 @@ namespace System.Windows.Extension.Controls
                     var command = item.GetValue(CheckChangedProperty);
                     if (command != null && command is ICommand cmd)
                     {
-                        cmd.Execute(item.GetValue(CommandParameterProperty));
+                        cmd.Execute(item.GetValue(CommandParameterProperty)?? item);
                     }
                 }
             }));

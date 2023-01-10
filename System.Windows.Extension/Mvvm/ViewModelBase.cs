@@ -67,7 +67,7 @@ namespace System.Windows.Extension.Mvvm
         protected void Set(string propertyName, object value)
         {
             if (!_values.ContainsKey(propertyName) ||
-                !_values[propertyName].Equals(value))
+                _values[propertyName] == null || !_values[propertyName].Equals(value))
             {
                 _values[propertyName] = value;
                 _notify?.Invoke(this, new PropertyChangedEventArgs(propertyName));

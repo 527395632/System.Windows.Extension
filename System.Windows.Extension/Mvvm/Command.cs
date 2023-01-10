@@ -60,7 +60,14 @@ namespace System.Windows.Extension.Mvvm
                     return;
                 }
             }
-            _execute?.DynamicInvoke(parameter);
+            if (_execute.Method.GetParameters().Length == 0)
+            {
+                _execute.DynamicInvoke();
+            }
+            else
+            {
+                _execute.DynamicInvoke(parameter);
+            }
         }
 
         bool ICommand.CanExecute(object parameter)
@@ -79,7 +86,10 @@ namespace System.Windows.Extension.Mvvm
                     return (bool)_canExecute.DynamicInvoke(values);
                 }
             }
-            return (bool)_canExecute.DynamicInvoke(parameter);
+
+            return _canExecute.Method.GetParameters().Length == 0 ?
+                (bool)_canExecute.DynamicInvoke() :
+                (bool)_canExecute.DynamicInvoke(parameter);
         }
         #endregion
     }
