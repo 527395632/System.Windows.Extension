@@ -21,23 +21,30 @@ namespace System.Windows.Extension.Mvvm
 
             foreach (var item in t.GetProperties())
             {
-                CmdBindingAttribute attribute = null;
-                if (item.PropertyType.Equals(typeof(Command)) &&
-                    !item.PropertyType.IsAbstract &&
-                    (attribute = item.GetCustomAttribute<CmdBindingAttribute>(true)) != null &&
-                    !string.IsNullOrWhiteSpace(attribute.Execute))
+                try
                 {
-                    var execute = methods.FirstOrDefault(q => q.Name.Equals(attribute.Execute))?.CreateDelegate(this);
-                    var canExecute = methods.FirstOrDefault(q => q.Name.Equals(attribute.CanExecute))?.CreateDelegate(this);
-                    if (execute != null)
+                    CmdBindingAttribute attribute = null;
+                    if (item.PropertyType.Equals(typeof(Command)) &&
+                        !item.PropertyType.IsAbstract &&
+                        (attribute = item.GetCustomAttribute<CmdBindingAttribute>(true)) != null &&
+                        !string.IsNullOrWhiteSpace(attribute.Execute))
                     {
-                        var cmd = (Command)Activator.CreateInstance(item.PropertyType, new object[] { execute, canExecute });
-                        item.SetValue(this, cmd);
+                        var execute = methods.FirstOrDefault(q => q.Name.Equals(attribute.Execute))?.CreateDelegate(this);
+                        var canExecute = methods.FirstOrDefault(q => q.Name.Equals(attribute.CanExecute))?.CreateDelegate(this);
+                        if (execute != null)
+                        {
+                            var cmd = (Command)Activator.CreateInstance(item.PropertyType, new object[] { execute, canExecute });
+                            item.SetValue(this, cmd);
+                        }
+                    }
+                    else if (typeof(IList).IsAssignableFrom(item.PropertyType) && !item.PropertyType.IsAbstract)
+                    {
+                        item.SetValue(this, Activator.CreateInstance(item.PropertyType));
                     }
                 }
-                else if (typeof(IList).IsAssignableFrom(item.PropertyType) && !item.PropertyType.IsAbstract)
+                catch (Exception e)
                 {
-                    item.SetValue(this, Activator.CreateInstance(item.PropertyType));
+
                 }
             }
         }
